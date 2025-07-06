@@ -4,7 +4,7 @@ const mysql = require('mysql2'); // o mysql2/promise si usas promesas
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '',
+  password: 'root',
   database: 'formulario_db'
 });
 
