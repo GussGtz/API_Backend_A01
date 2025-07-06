@@ -92,7 +92,10 @@ app.post('/api/register', async (req, res) => {
 
       const hashedPassword = await bcrypt.hash(password, 10);
       db.query('INSERT INTO usuarios (nombre, correo, password) VALUES (?, ?, ?)', [nombre, correo, hashedPassword], (err) => {
-        if (err) return res.status(500).json({ message: 'Error interno al registrar' });
+if (err) {
+  console.error('Error en INSERT:', err);  // 👈 así puedes ver el error en Render
+  return res.status(500).json({ message: 'Error interno al registrar' });
+}
         res.status(200).json({ message: 'Registro exitoso' });
       });
     });
