@@ -12,6 +12,7 @@ dotenv.config();
 const app = express();
 app.use(cors({
   origin: 'https://lambent-mermaid-3d3361.netlify.app', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
 
 app.use(express.json({ limit: '1mb' }));
